@@ -119,7 +119,7 @@ public class LispIntGUI extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
             if(ae.getSource()==selectButton){
                 // Code to choose the source file
-                JFileChooser chooser = new JFileChooser("/Users/jorgejaso/NetBeansProjects/LispInt/LispCode");
+                JFileChooser chooser = new JFileChooser("/Users/jorgejaso/NetBeansProjects/LispInt_Arith/LispCode");
                 //chooser.setFileFilter(".lisp");
                 int returnVal = chooser.showOpenDialog(LispIntGUI.this);
                 // if file chosen, display file contents
@@ -144,10 +144,10 @@ public class LispIntGUI extends JFrame implements ActionListener {
                 // Execute selected file
                 try {
                     PrintWriter writerout = null; 
-                    writerout = new PrintWriter("/Users/jorgejaso/NetBeansProjects/LispInt/LispSource"); 
+                    writerout = new PrintWriter("/Users/jorgejaso/NetBeansProjects/LispInt_Arith/LispSource"); 
                     writerout.println(CodeTextArea.getText());
                     writerout.close();
-                    CharStream cs= new ANTLRFileStream("/Users/jorgejaso/NetBeansProjects/LispInt/LispSource");
+                    CharStream cs= new ANTLRFileStream("/Users/jorgejaso/NetBeansProjects/LispInt_Arith/LispSource");
                     LispLexer lexer = new LispLexer (cs); // Modify for new grammar
                     CommonTokenStream tokens = new CommonTokenStream(lexer);
                     LispParser parser = new LispParser(tokens); // Modify for new grammar
@@ -175,7 +175,7 @@ public class LispIntGUI extends JFrame implements ActionListener {
 
                 try {
                     PrintWriter writerout = null; 
-                    writerout = new PrintWriter("/Users/jorgejaso/NetBeansProjects/LispInt/"+ResultFile); 
+                    writerout = new PrintWriter("/Users/jorgejaso/NetBeansProjects/LispInt_Arith/"+ResultFile); 
                     writerout.println("INPUT CODE:");
                     writerout.println("---------------------------------------------------\n");
                     writerout.println(CodeTextArea.getText());

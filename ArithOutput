@@ -1,13 +1,17 @@
 INPUT CODE:
 ---------------------------------------------------
 
-(setq a 10)
-(setq b 2)
-(put (+ a b))
+(setq a 3)
+(setq b 4)
+(setq cd 5)
+(setq s (/ ((+ (+ a b) cd)) 2))
+(put s)
+(put (* (* (* s (- s a)) (- s b)) (- s cd)))
 
 
 RESULTS:
 ---------------------------------------------------
-The source lisp code contains: 
-S-expression: 
-Atoms: 
+
+6
+36
+
