@@ -1,0 +1,11 @@
+INPUT CODE:
+---------------------------------------------------
+
+(length (car (a b c d)))
+
+
+RESULTS:
+---------------------------------------------------
+The source lisp code contains: 
+S-expression: 
+Atoms: 

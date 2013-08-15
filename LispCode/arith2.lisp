@@ -1,0 +1,6 @@
+(setq a 3)
+(setq b 4)
+(setq cd 5)
+(setq s (/ ((+ (+ a b) cd)) 2))
+(put s)
+(put (* (* (* s (- s a)) (- s b)) (- s cd)))
