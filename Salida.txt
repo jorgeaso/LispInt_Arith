@@ -1,13 +1,18 @@
 INPUT CODE:
 ---------------------------------------------------
 
-(setq a 10)
-(setq b 2)
-(put (+ a b))
+(setq c 10)
+(setq e 7)
+(put (* c 2))
+(put (* e 8))
+(setq m (+ (* c 2) (* e 8)))
+(put m)
 
 
 RESULTS:
 ---------------------------------------------------
-The source lisp code contains: 
-S-expression: 
-Atoms: 
+
+20
+56
+76
+

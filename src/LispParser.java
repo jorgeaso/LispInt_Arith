@@ -1,4 +1,4 @@
-// $ANTLR 3.5 /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g 2013-08-15 15:31:32
+// $ANTLR 3.5 /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g 2013-08-16 00:34:54
 
 import java.util.HashMap;
 import java.io.*;
@@ -59,13 +59,13 @@ public class LispParser extends Parser {
 
 
 	// $ANTLR start "prog"
-	// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:22:1: prog : ( com )* ( EOF | EOL ) ;
+	// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:23:1: prog : ( com )* ( EOF | EOL ) ;
 	public final void prog() throws RecognitionException {
 		try {
-			// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:23:2: ( ( com )* ( EOF | EOL ) )
-			// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:23:4: ( com )* ( EOF | EOL )
+			// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:24:2: ( ( com )* ( EOF | EOL ) )
+			// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:24:4: ( com )* ( EOF | EOL )
 			{
-			// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:23:4: ( com )*
+			// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:24:4: ( com )*
 			loop1:
 			while (true) {
 				int alt1=2;
@@ -76,9 +76,9 @@ public class LispParser extends Parser {
 
 				switch (alt1) {
 				case 1 :
-					// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:23:4: com
+					// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:24:4: com
 					{
-					pushFollow(FOLLOW_com_in_prog27);
+					pushFollow(FOLLOW_com_in_prog28);
 					com();
 					state._fsp--;
 
@@ -114,13 +114,13 @@ public class LispParser extends Parser {
 
 
 	// $ANTLR start "com"
-	// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:28:1: com : ( '(' PUT v= sexpr ')' EOL | '(' SETQ ID v= sexpr ')' EOL );
+	// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:29:1: com : ( '(' PUT v= sexpr ')' EOL | '(' SETQ ID v= sexpr ')' EOL );
 	public final void com() throws RecognitionException {
 		Token ID1=null;
 		int v =0;
 
 		try {
-			// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:29:2: ( '(' PUT v= sexpr ')' EOL | '(' SETQ ID v= sexpr ')' EOL )
+			// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:30:2: ( '(' PUT v= sexpr ')' EOL | '(' SETQ ID v= sexpr ')' EOL )
 			int alt2=2;
 			int LA2_0 = input.LA(1);
 			if ( (LA2_0==LPAR) ) {
@@ -154,44 +154,44 @@ public class LispParser extends Parser {
 
 			switch (alt2) {
 				case 1 :
-					// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:29:4: '(' PUT v= sexpr ')' EOL
+					// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:30:4: '(' PUT v= sexpr ')' EOL
 					{
-					match(input,LPAR,FOLLOW_LPAR_in_com52); 
-					match(input,PUT,FOLLOW_PUT_in_com54); 
-					pushFollow(FOLLOW_sexpr_in_com58);
+					match(input,LPAR,FOLLOW_LPAR_in_com53); 
+					match(input,PUT,FOLLOW_PUT_in_com55); 
+					pushFollow(FOLLOW_sexpr_in_com59);
 					v=sexpr();
 					state._fsp--;
 
-					match(input,RPAR,FOLLOW_RPAR_in_com60); 
-					match(input,EOL,FOLLOW_EOL_in_com62); 
+					match(input,RPAR,FOLLOW_RPAR_in_com61); 
+					match(input,EOL,FOLLOW_EOL_in_com63); 
 					 LispIntRun.output.println(v); // PrintWriter
 					                                                try
 					                                                {
-					                                                PrintWriter writerout = null; 
-					                                                writerout = new PrintWriter(new BufferedWriter(new FileWriter("LispOutput", true))); // write to a file and appends the results in case there are more than 1 line
-					                                                writerout.println(v); // LispIntRun.filewriter.println();
-					                                                writerout.close();
+					                                                    PrintWriter writerout = null; 
+					                                                    writerout = new PrintWriter(new BufferedWriter(new FileWriter("LispOutput", true))); // write to a file and appends the results in case there are more than 1 line
+					                                                    writerout.println(v); // LispIntRun.filewriter.println();
+					                                                    writerout.close();
 					                                                }
 					                                                catch (IOException ioe)
 					                                                {
-					                                                        System.out.println("File I/O error: ");
-					                                                        ioe.printStackTrace(); // print out details of where exception occurred			
+					                                                    System.out.println("File I/O error: ");
+					                                                    ioe.printStackTrace(); // print out details of where exception occurred			
 					                                                }
 					                                              
 					}
 					break;
 				case 2 :
-					// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:43:4: '(' SETQ ID v= sexpr ')' EOL
+					// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:44:4: '(' SETQ ID v= sexpr ')' EOL
 					{
-					match(input,LPAR,FOLLOW_LPAR_in_com75); 
-					match(input,SETQ,FOLLOW_SETQ_in_com77); 
-					ID1=(Token)match(input,ID,FOLLOW_ID_in_com79); 
-					pushFollow(FOLLOW_sexpr_in_com83);
+					match(input,LPAR,FOLLOW_LPAR_in_com76); 
+					match(input,SETQ,FOLLOW_SETQ_in_com78); 
+					ID1=(Token)match(input,ID,FOLLOW_ID_in_com80); 
+					pushFollow(FOLLOW_sexpr_in_com84);
 					v=sexpr();
 					state._fsp--;
 
-					match(input,RPAR,FOLLOW_RPAR_in_com85); 
-					match(input,EOL,FOLLOW_EOL_in_com87); 
+					match(input,RPAR,FOLLOW_RPAR_in_com86); 
+					match(input,EOL,FOLLOW_EOL_in_com88); 
 					 
 					                                                    store.put((ID1!=null?ID1.getText():null),new Integer(v));
 					                                                    //Hashmap is composed by: ID (variable name), Numeric Value 
@@ -214,7 +214,7 @@ public class LispParser extends Parser {
 
 
 	// $ANTLR start "sexpr"
-	// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:51:1: sexpr returns [int value] : (v1= term | ( '(' PLUS v1= sexpr v2= sexpr ')' | '(' MINUS v1= sexpr v2= sexpr ')' | '(' TIMES v1= sexpr v2= sexpr ')' | '(' QUOTIENT v1= sexpr v2= sexpr ')' ) );
+	// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:52:1: sexpr returns [int value] : (v1= term | ( '(' PLUS v1= sexpr v2= sexpr ')' | '(' MINUS v1= sexpr v2= sexpr ')' | '(' TIMES v1= sexpr v2= sexpr ')' | '(' QUOTIENT v1= sexpr v2= sexpr ')' ) );
 	public final int sexpr() throws RecognitionException {
 		int value = 0;
 
@@ -223,7 +223,7 @@ public class LispParser extends Parser {
 		int v2 =0;
 
 		try {
-			// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:52:2: (v1= term | ( '(' PLUS v1= sexpr v2= sexpr ')' | '(' MINUS v1= sexpr v2= sexpr ')' | '(' TIMES v1= sexpr v2= sexpr ')' | '(' QUOTIENT v1= sexpr v2= sexpr ')' ) )
+			// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:53:2: (v1= term | ( '(' PLUS v1= sexpr v2= sexpr ')' | '(' MINUS v1= sexpr v2= sexpr ')' | '(' TIMES v1= sexpr v2= sexpr ')' | '(' QUOTIENT v1= sexpr v2= sexpr ')' ) )
 			int alt4=2;
 			int LA4_0 = input.LA(1);
 			if ( (LA4_0==ID||LA4_0==NUM) ) {
@@ -260,9 +260,9 @@ public class LispParser extends Parser {
 
 			switch (alt4) {
 				case 1 :
-					// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:52:4: v1= term
+					// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:53:4: v1= term
 					{
-					pushFollow(FOLLOW_term_in_sexpr136);
+					pushFollow(FOLLOW_term_in_sexpr137);
 					v1=term();
 					state._fsp--;
 
@@ -270,9 +270,9 @@ public class LispParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:53:4: ( '(' PLUS v1= sexpr v2= sexpr ')' | '(' MINUS v1= sexpr v2= sexpr ')' | '(' TIMES v1= sexpr v2= sexpr ')' | '(' QUOTIENT v1= sexpr v2= sexpr ')' )
+					// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:54:4: ( '(' PLUS v1= sexpr v2= sexpr ')' | '(' MINUS v1= sexpr v2= sexpr ')' | '(' TIMES v1= sexpr v2= sexpr ')' | '(' QUOTIENT v1= sexpr v2= sexpr ')' )
 					{
-					// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:53:4: ( '(' PLUS v1= sexpr v2= sexpr ')' | '(' MINUS v1= sexpr v2= sexpr ')' | '(' TIMES v1= sexpr v2= sexpr ')' | '(' QUOTIENT v1= sexpr v2= sexpr ')' )
+					// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:54:4: ( '(' PLUS v1= sexpr v2= sexpr ')' | '(' MINUS v1= sexpr v2= sexpr ')' | '(' TIMES v1= sexpr v2= sexpr ')' | '(' QUOTIENT v1= sexpr v2= sexpr ')' )
 					int alt3=4;
 					int LA3_0 = input.LA(1);
 					if ( (LA3_0==LPAR) ) {
@@ -318,70 +318,70 @@ public class LispParser extends Parser {
 
 					switch (alt3) {
 						case 1 :
-							// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:53:5: '(' PLUS v1= sexpr v2= sexpr ')'
+							// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:54:5: '(' PLUS v1= sexpr v2= sexpr ')'
 							{
-							match(input,LPAR,FOLLOW_LPAR_in_sexpr157); 
-							match(input,PLUS,FOLLOW_PLUS_in_sexpr175); 
-							pushFollow(FOLLOW_sexpr_in_sexpr179);
+							match(input,LPAR,FOLLOW_LPAR_in_sexpr158); 
+							match(input,PLUS,FOLLOW_PLUS_in_sexpr176); 
+							pushFollow(FOLLOW_sexpr_in_sexpr180);
 							v1=sexpr();
 							state._fsp--;
 
-							pushFollow(FOLLOW_sexpr_in_sexpr183);
+							pushFollow(FOLLOW_sexpr_in_sexpr184);
 							v2=sexpr();
 							state._fsp--;
 
-							match(input,RPAR,FOLLOW_RPAR_in_sexpr185); 
+							match(input,RPAR,FOLLOW_RPAR_in_sexpr186); 
 							value = v1 + v2;
 							}
 							break;
 						case 2 :
-							// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:55:19: '(' MINUS v1= sexpr v2= sexpr ')'
+							// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:56:19: '(' MINUS v1= sexpr v2= sexpr ')'
 							{
-							match(input,LPAR,FOLLOW_LPAR_in_sexpr207); 
-							match(input,MINUS,FOLLOW_MINUS_in_sexpr209); 
-							pushFollow(FOLLOW_sexpr_in_sexpr213);
+							match(input,LPAR,FOLLOW_LPAR_in_sexpr208); 
+							match(input,MINUS,FOLLOW_MINUS_in_sexpr210); 
+							pushFollow(FOLLOW_sexpr_in_sexpr214);
 							v1=sexpr();
 							state._fsp--;
 
-							pushFollow(FOLLOW_sexpr_in_sexpr217);
+							pushFollow(FOLLOW_sexpr_in_sexpr218);
 							v2=sexpr();
 							state._fsp--;
 
-							match(input,RPAR,FOLLOW_RPAR_in_sexpr219); 
+							match(input,RPAR,FOLLOW_RPAR_in_sexpr220); 
 							value = v1 - v2;
 							}
 							break;
 						case 3 :
-							// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:56:19: '(' TIMES v1= sexpr v2= sexpr ')'
+							// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:57:19: '(' TIMES v1= sexpr v2= sexpr ')'
 							{
-							match(input,LPAR,FOLLOW_LPAR_in_sexpr242); 
-							match(input,TIMES,FOLLOW_TIMES_in_sexpr244); 
-							pushFollow(FOLLOW_sexpr_in_sexpr248);
+							match(input,LPAR,FOLLOW_LPAR_in_sexpr243); 
+							match(input,TIMES,FOLLOW_TIMES_in_sexpr245); 
+							pushFollow(FOLLOW_sexpr_in_sexpr249);
 							v1=sexpr();
 							state._fsp--;
 
-							pushFollow(FOLLOW_sexpr_in_sexpr252);
+							pushFollow(FOLLOW_sexpr_in_sexpr253);
 							v2=sexpr();
 							state._fsp--;
 
-							match(input,RPAR,FOLLOW_RPAR_in_sexpr254); 
+							match(input,RPAR,FOLLOW_RPAR_in_sexpr255); 
 							value = v1 * v2;
 							}
 							break;
 						case 4 :
-							// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:57:19: '(' QUOTIENT v1= sexpr v2= sexpr ')'
+							// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:58:19: '(' QUOTIENT v1= sexpr v2= sexpr ')'
 							{
-							match(input,LPAR,FOLLOW_LPAR_in_sexpr276); 
-							match(input,QUOTIENT,FOLLOW_QUOTIENT_in_sexpr278); 
-							pushFollow(FOLLOW_sexpr_in_sexpr282);
+							match(input,LPAR,FOLLOW_LPAR_in_sexpr277); 
+							match(input,QUOTIENT,FOLLOW_QUOTIENT_in_sexpr279); 
+							pushFollow(FOLLOW_sexpr_in_sexpr283);
 							v1=sexpr();
 							state._fsp--;
 
-							pushFollow(FOLLOW_sexpr_in_sexpr286);
+							pushFollow(FOLLOW_sexpr_in_sexpr287);
 							v2=sexpr();
 							state._fsp--;
 
-							match(input,RPAR,FOLLOW_RPAR_in_sexpr288); 
+							match(input,RPAR,FOLLOW_RPAR_in_sexpr289); 
 							value = v1 / v2;
 							}
 							break;
@@ -407,7 +407,7 @@ public class LispParser extends Parser {
 
 
 	// $ANTLR start "term"
-	// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:61:1: term returns [int value] : ( NUM | ID | '(' v= sexpr ')' );
+	// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:62:1: term returns [int value] : ( NUM | ID | '(' v= sexpr ')' );
 	public final int term() throws RecognitionException {
 		int value = 0;
 
@@ -417,7 +417,7 @@ public class LispParser extends Parser {
 		int v =0;
 
 		try {
-			// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:62:2: ( NUM | ID | '(' v= sexpr ')' )
+			// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:63:2: ( NUM | ID | '(' v= sexpr ')' )
 			int alt5=3;
 			switch ( input.LA(1) ) {
 			case NUM:
@@ -442,17 +442,17 @@ public class LispParser extends Parser {
 			}
 			switch (alt5) {
 				case 1 :
-					// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:62:4: NUM
+					// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:63:4: NUM
 					{
-					NUM2=(Token)match(input,NUM,FOLLOW_NUM_in_term345); 
+					NUM2=(Token)match(input,NUM,FOLLOW_NUM_in_term346); 
 					 value = Integer.parseInt(
 							                         (NUM2!=null?NUM2.getText():null)); 
 					}
 					break;
 				case 2 :
-					// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:64:4: ID
+					// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:65:4: ID
 					{
-					ID3=(Token)match(input,ID,FOLLOW_ID_in_term369); 
+					ID3=(Token)match(input,ID,FOLLOW_ID_in_term370); 
 					  
 					                                       Integer v3 = (Integer)store.get((ID3!=null?ID3.getText():null));
 					                                       if ( v3!=null ) value = v3.intValue();
@@ -461,14 +461,14 @@ public class LispParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:69:4: '(' v= sexpr ')'
+					// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:70:4: '(' v= sexpr ')'
 					{
-					match(input,LPAR,FOLLOW_LPAR_in_term394); 
-					pushFollow(FOLLOW_sexpr_in_term398);
+					match(input,LPAR,FOLLOW_LPAR_in_term395); 
+					pushFollow(FOLLOW_sexpr_in_term399);
 					v=sexpr();
 					state._fsp--;
 
-					match(input,RPAR,FOLLOW_RPAR_in_term400); 
+					match(input,RPAR,FOLLOW_RPAR_in_term401); 
 					 value = v; 
 					}
 					break;
@@ -490,43 +490,43 @@ public class LispParser extends Parser {
 
 
 
-	public static final BitSet FOLLOW_com_in_prog27 = new BitSet(new long[]{0x00000000000000A0L});
-	public static final BitSet FOLLOW_set_in_prog30 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LPAR_in_com52 = new BitSet(new long[]{0x0000000000000800L});
-	public static final BitSet FOLLOW_PUT_in_com54 = new BitSet(new long[]{0x00000000000002C0L});
-	public static final BitSet FOLLOW_sexpr_in_com58 = new BitSet(new long[]{0x0000000000002000L});
-	public static final BitSet FOLLOW_RPAR_in_com60 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_EOL_in_com62 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LPAR_in_com75 = new BitSet(new long[]{0x0000000000004000L});
-	public static final BitSet FOLLOW_SETQ_in_com77 = new BitSet(new long[]{0x0000000000000040L});
-	public static final BitSet FOLLOW_ID_in_com79 = new BitSet(new long[]{0x00000000000002C0L});
-	public static final BitSet FOLLOW_sexpr_in_com83 = new BitSet(new long[]{0x0000000000002000L});
-	public static final BitSet FOLLOW_RPAR_in_com85 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_EOL_in_com87 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_term_in_sexpr136 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LPAR_in_sexpr157 = new BitSet(new long[]{0x0000000000000400L});
-	public static final BitSet FOLLOW_PLUS_in_sexpr175 = new BitSet(new long[]{0x00000000000002C0L});
-	public static final BitSet FOLLOW_sexpr_in_sexpr179 = new BitSet(new long[]{0x00000000000002C0L});
-	public static final BitSet FOLLOW_sexpr_in_sexpr183 = new BitSet(new long[]{0x0000000000002000L});
-	public static final BitSet FOLLOW_RPAR_in_sexpr185 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LPAR_in_sexpr207 = new BitSet(new long[]{0x0000000000000100L});
-	public static final BitSet FOLLOW_MINUS_in_sexpr209 = new BitSet(new long[]{0x00000000000002C0L});
-	public static final BitSet FOLLOW_sexpr_in_sexpr213 = new BitSet(new long[]{0x00000000000002C0L});
-	public static final BitSet FOLLOW_sexpr_in_sexpr217 = new BitSet(new long[]{0x0000000000002000L});
-	public static final BitSet FOLLOW_RPAR_in_sexpr219 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LPAR_in_sexpr242 = new BitSet(new long[]{0x0000000000010000L});
-	public static final BitSet FOLLOW_TIMES_in_sexpr244 = new BitSet(new long[]{0x00000000000002C0L});
-	public static final BitSet FOLLOW_sexpr_in_sexpr248 = new BitSet(new long[]{0x00000000000002C0L});
-	public static final BitSet FOLLOW_sexpr_in_sexpr252 = new BitSet(new long[]{0x0000000000002000L});
-	public static final BitSet FOLLOW_RPAR_in_sexpr254 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LPAR_in_sexpr276 = new BitSet(new long[]{0x0000000000001000L});
-	public static final BitSet FOLLOW_QUOTIENT_in_sexpr278 = new BitSet(new long[]{0x00000000000002C0L});
-	public static final BitSet FOLLOW_sexpr_in_sexpr282 = new BitSet(new long[]{0x00000000000002C0L});
-	public static final BitSet FOLLOW_sexpr_in_sexpr286 = new BitSet(new long[]{0x0000000000002000L});
-	public static final BitSet FOLLOW_RPAR_in_sexpr288 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_NUM_in_term345 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ID_in_term369 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LPAR_in_term394 = new BitSet(new long[]{0x00000000000002C0L});
-	public static final BitSet FOLLOW_sexpr_in_term398 = new BitSet(new long[]{0x0000000000002000L});
-	public static final BitSet FOLLOW_RPAR_in_term400 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_com_in_prog28 = new BitSet(new long[]{0x00000000000000A0L});
+	public static final BitSet FOLLOW_set_in_prog31 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LPAR_in_com53 = new BitSet(new long[]{0x0000000000000800L});
+	public static final BitSet FOLLOW_PUT_in_com55 = new BitSet(new long[]{0x00000000000002C0L});
+	public static final BitSet FOLLOW_sexpr_in_com59 = new BitSet(new long[]{0x0000000000002000L});
+	public static final BitSet FOLLOW_RPAR_in_com61 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_EOL_in_com63 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LPAR_in_com76 = new BitSet(new long[]{0x0000000000004000L});
+	public static final BitSet FOLLOW_SETQ_in_com78 = new BitSet(new long[]{0x0000000000000040L});
+	public static final BitSet FOLLOW_ID_in_com80 = new BitSet(new long[]{0x00000000000002C0L});
+	public static final BitSet FOLLOW_sexpr_in_com84 = new BitSet(new long[]{0x0000000000002000L});
+	public static final BitSet FOLLOW_RPAR_in_com86 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_EOL_in_com88 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_term_in_sexpr137 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LPAR_in_sexpr158 = new BitSet(new long[]{0x0000000000000400L});
+	public static final BitSet FOLLOW_PLUS_in_sexpr176 = new BitSet(new long[]{0x00000000000002C0L});
+	public static final BitSet FOLLOW_sexpr_in_sexpr180 = new BitSet(new long[]{0x00000000000002C0L});
+	public static final BitSet FOLLOW_sexpr_in_sexpr184 = new BitSet(new long[]{0x0000000000002000L});
+	public static final BitSet FOLLOW_RPAR_in_sexpr186 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LPAR_in_sexpr208 = new BitSet(new long[]{0x0000000000000100L});
+	public static final BitSet FOLLOW_MINUS_in_sexpr210 = new BitSet(new long[]{0x00000000000002C0L});
+	public static final BitSet FOLLOW_sexpr_in_sexpr214 = new BitSet(new long[]{0x00000000000002C0L});
+	public static final BitSet FOLLOW_sexpr_in_sexpr218 = new BitSet(new long[]{0x0000000000002000L});
+	public static final BitSet FOLLOW_RPAR_in_sexpr220 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LPAR_in_sexpr243 = new BitSet(new long[]{0x0000000000010000L});
+	public static final BitSet FOLLOW_TIMES_in_sexpr245 = new BitSet(new long[]{0x00000000000002C0L});
+	public static final BitSet FOLLOW_sexpr_in_sexpr249 = new BitSet(new long[]{0x00000000000002C0L});
+	public static final BitSet FOLLOW_sexpr_in_sexpr253 = new BitSet(new long[]{0x0000000000002000L});
+	public static final BitSet FOLLOW_RPAR_in_sexpr255 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LPAR_in_sexpr277 = new BitSet(new long[]{0x0000000000001000L});
+	public static final BitSet FOLLOW_QUOTIENT_in_sexpr279 = new BitSet(new long[]{0x00000000000002C0L});
+	public static final BitSet FOLLOW_sexpr_in_sexpr283 = new BitSet(new long[]{0x00000000000002C0L});
+	public static final BitSet FOLLOW_sexpr_in_sexpr287 = new BitSet(new long[]{0x0000000000002000L});
+	public static final BitSet FOLLOW_RPAR_in_sexpr289 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_NUM_in_term346 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ID_in_term370 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LPAR_in_term395 = new BitSet(new long[]{0x00000000000002C0L});
+	public static final BitSet FOLLOW_sexpr_in_term399 = new BitSet(new long[]{0x0000000000002000L});
+	public static final BitSet FOLLOW_RPAR_in_term401 = new BitSet(new long[]{0x0000000000000002L});
 }

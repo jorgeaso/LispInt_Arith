@@ -1,3 +1,4 @@
+// Arithmetic Expressions Grammar File
 grammar Lisp;
 
 @header{
@@ -29,15 +30,15 @@ com
 	:	'(' PUT v=sexpr ')' EOL       { LispIntRun.output.println($v.value); // PrintWriter
                                                 try
                                                 {
-                                                PrintWriter writerout = null; 
-                                                writerout = new PrintWriter(new BufferedWriter(new FileWriter("LispOutput", true))); // write to a file and appends the results in case there are more than 1 line
-                                                writerout.println($v.value); // LispIntRun.filewriter.println();
-                                                writerout.close();
+                                                    PrintWriter writerout = null; 
+                                                    writerout = new PrintWriter(new BufferedWriter(new FileWriter("LispOutput", true))); // write to a file and appends the results in case there are more than 1 line
+                                                    writerout.println($v.value); // LispIntRun.filewriter.println();
+                                                    writerout.close();
                                                 }
                                                 catch (IOException ioe)
                                                 {
-                                                        System.out.println("File I/O error: ");
-                                                        ioe.printStackTrace(); // print out details of where exception occurred			
+                                                    System.out.println("File I/O error: ");
+                                                    ioe.printStackTrace(); // print out details of where exception occurred			
                                                 }
                                               }
 	|	'(' SETQ ID v=sexpr ')' EOL       { 
