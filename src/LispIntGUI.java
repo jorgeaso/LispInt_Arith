@@ -31,7 +31,9 @@ public class LispIntGUI extends JFrame implements ActionListener {
     public LispIntGUI() {
             setDefaultCloseOperation(EXIT_ON_CLOSE);
             setTitle("Lisp Interpreter: Arithmetic Expressions");
-            setSize(700, 400);
+            setSize(700, 520);
+            setResizable(false);
+            setLocation(300,100);
             layoutTop();
             layoutMiddle();
             layoutBottom();	
@@ -60,7 +62,7 @@ public class LispIntGUI extends JFrame implements ActionListener {
             SourceLabel= new JLabel("Source Lisp Code:");
             UpperMiddle.add(SourceLabel, BorderLayout.NORTH);
             
-            CodeTextArea = new JTextArea(7,75);
+            CodeTextArea = new JTextArea(10,75);
             CodeTextArea.setFont(new Font("Courier", Font.PLAIN, 14));
             CodeTextArea.setEditable(true);
             CodeTextArea.setText("");
@@ -93,7 +95,7 @@ public class LispIntGUI extends JFrame implements ActionListener {
             OutputLabel= new JLabel("Output:");
             UpperBottom.add(OutputLabel, BorderLayout.NORTH);
 
-            OutputTextArea = new JTextArea(7,75);
+            OutputTextArea = new JTextArea(10,75);
             OutputTextArea.setFont(new Font("Courier", Font.PLAIN, 14));
             OutputTextArea.setEditable(false);
             OutputTextArea.setText("");
@@ -142,10 +144,15 @@ public class LispIntGUI extends JFrame implements ActionListener {
                 if (CodeTextArea.getText().equals("")){
                         JOptionPane.showMessageDialog(null, "Enter Lisp Code or Select Lisp File!", "Warning Message", JOptionPane.WARNING_MESSAGE);
                 }else{
-                // Lisp Code Analysis
-                OutputTextArea.setText("The source lisp code contains: ");
-                OutputTextArea.append("\nS-expression: ");
-                OutputTextArea.append("\nAtoms: ");
+                    
+                        // Lisp Code Analysis
+                        
+                        OutputTextArea.setText("The source lisp code contains: ");
+                        
+                        OutputTextArea.append("");
+                        OutputTextArea.append("\nS-expression: ");
+                        OutputTextArea.append("\nAtoms: ");
+                    
                 }
             }
             
@@ -162,9 +169,9 @@ public class LispIntGUI extends JFrame implements ActionListener {
                     writerout.println(CodeTextArea.getText());
                     writerout.close();
                     CharStream cs= new ANTLRFileStream("/Users/jorgejaso/NetBeansProjects/LispInt_Arith/LispSource");
-                    LispLexer lexer = new LispLexer (cs); // Modify for new grammar
+                    LispLexer lexer = new LispLexer (cs); 
                     CommonTokenStream tokens = new CommonTokenStream(lexer);
-                    LispParser parser = new LispParser(tokens); // Modify for new grammar
+                    LispParser parser = new LispParser(tokens); 
                     try {
                         parser.prog();
                     }catch(RecognitionException ex) {
