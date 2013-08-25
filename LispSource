@@ -1,7 +1,7 @@
-(setq c 10)
-(setq e 7)
-(put (* c 2))
-(put (* e 8))
-(setq m (+ (* c 2) (* e 8)))
-(put m)
+(setq a 3)
+(setq b 4)
+(setq cd 5)
+(setq s (/ ((+ (+ a b) cd)) 2))
+(put s)
+(put (* (* (* s (- s a)) (- s b)) (- s cd)))
 

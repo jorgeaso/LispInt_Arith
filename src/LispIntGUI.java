@@ -191,12 +191,14 @@ public class LispIntGUI extends JFrame implements ActionListener {
             
             if (ae.getSource()==saveButton)
             {	    	
-                // Save the input code and the results in a file
-                ResultFile = JOptionPane.showInputDialog ("Please enter file name: ");
-
+                // Save the input code and the results to a file
+                JFileChooser chooser = new JFileChooser();
+                chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY); 
+                chooser.showSaveDialog(null);
+                String savepath = chooser.getSelectedFile().getAbsolutePath();
                 try {
                     PrintWriter writerout = null; 
-                    writerout = new PrintWriter("/Users/jorgejaso/NetBeansProjects/LispInt_Arith/"+ResultFile+".txt"); 
+                    writerout = new PrintWriter(savepath+".txt"); 
                     writerout.println("INPUT CODE:");
                     writerout.println("---------------------------------------------------\n");
                     writerout.println(CodeTextArea.getText());
