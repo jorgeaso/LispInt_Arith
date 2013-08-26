@@ -122,7 +122,7 @@ public class LispIntGUI extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
             if(ae.getSource()==selectButton){
                 // Code to choose the source file
-                JFileChooser chooser = new JFileChooser("/Users/jorgejaso/NetBeansProjects/LispInt_Arith/LispCode");
+                JFileChooser chooser = new JFileChooser("./LispCode");
                 //chooser.setFileFilter(".lisp");
                 FileNameExtensionFilter extfilter = new FileNameExtensionFilter("lisp files", ("lisp"),("lsp"),("txt"));
                 chooser.setFileFilter(extfilter);
@@ -132,11 +132,15 @@ public class LispIntGUI extends JFrame implements ActionListener {
                 // if file chosen, display file contents
                 if (returnVal == JFileChooser.APPROVE_OPTION){
                   FilePath = chooser.getSelectedFile().getPath();
+                  if (FilePath.endsWith("lsp") | FilePath.endsWith("txt") | FilePath.endsWith("lisp")){
                   // System.out.println(FilePath);
                   DisplayCode SourceCodeObject =new DisplayCode(FilePath);
                   String Code=SourceCodeObject.DisplaySource();
                   CodeTextArea.setText(Code);
+                }else{
+                      JOptionPane.showMessageDialog(null, "Select a valid file: .lsp, .lisp or .txt", "Warning Message", JOptionPane.WARNING_MESSAGE);
                 }
+                  }
             } // End if selectButton
             
             if (ae.getSource()==analyzeButton)
@@ -162,13 +166,13 @@ public class LispIntGUI extends JFrame implements ActionListener {
                 
                 try {
                     PrintWriter writerout = null; 
-                    writerout = new PrintWriter("/Users/jorgejaso/NetBeansProjects/LispInt_Arith/LispSource"); 
+                    writerout = new PrintWriter("./LispSource"); 
                     if (CodeTextArea.getText().equals("")){
                         JOptionPane.showMessageDialog(null, "Enter Lisp Code or Select Lisp File!", "Warning Message", JOptionPane.WARNING_MESSAGE);
                     }    
                     writerout.println(CodeTextArea.getText());
                     writerout.close();
-                    CharStream cs= new ANTLRFileStream("/Users/jorgejaso/NetBeansProjects/LispInt_Arith/LispSource");
+                    CharStream cs= new ANTLRFileStream("./LispSource");
                     LispLexer lexer = new LispLexer (cs); 
                     CommonTokenStream tokens = new CommonTokenStream(lexer);
                     LispParser parser = new LispParser(tokens); 
@@ -178,8 +182,8 @@ public class LispIntGUI extends JFrame implements ActionListener {
                         Logger.getLogger(LispIntGUI.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }catch(IOException e){
-                    JOptionPane.showMessageDialog(null, "File not found. \n", "Error Message", JOptionPane.ERROR_MESSAGE); 
-                    System.out.println("File not found");
+                    JOptionPane.showMessageDialog(null, "Location not found. \n", "Error Message", JOptionPane.ERROR_MESSAGE); 
+                    System.out.println("Location not found");
                     System.exit(0);
                 }
 
@@ -204,6 +208,7 @@ public class LispIntGUI extends JFrame implements ActionListener {
                     writerout.println(CodeTextArea.getText());
                     writerout.println("\nRESULTS:");
                     writerout.println("---------------------------------------------------");
+                    JOptionPane.showMessageDialog(null, "File saved.", "Information Message", JOptionPane.INFORMATION_MESSAGE);
                     writerout.println(OutputTextArea.getText());
                     writerout.close();
                 }catch(IOException e){

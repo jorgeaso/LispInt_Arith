@@ -48,7 +48,7 @@ public class DisplayCode {
     // Method that display the output code
     public String DisplayOutput() {
         String FilePath;
-        FilePath="/Users/jorgejaso/NetBeansProjects/LispInt_Arith/LispOutput";
+        FilePath="./LispOutput";
         String line="";
         try {
                 FileReader reader = new FileReader(FilePath);
@@ -60,7 +60,7 @@ public class DisplayCode {
                 //displayCode.setText(line);
                 reader.close();
                 PrintWriter writerout = null; 
-                writerout = new PrintWriter("/Users/jorgejaso/NetBeansProjects/LispInt_Arith/LispOutput"); 
+                writerout = new PrintWriter("./LispOutput"); 
                 writerout.println("");
                 writerout.close();
         }
