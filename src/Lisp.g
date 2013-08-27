@@ -27,7 +27,8 @@ prog
 // Commands
 
 com
-	:	'(' PUT v=sexpr ')' EOL       { LispIntRun.output.println($v.value); // PrintWriter
+	:	'(' PUT v=sexpr ')' EOL       { LispIntRun.ps.println("Write result: PUT found");
+                                                LispIntRun.output.println($v.value); // PrintWriter
                                                 try
                                                 {
                                                     PrintWriter writerout = null; 
@@ -41,7 +42,7 @@ com
                                                     ioe.printStackTrace(); // print out details of where exception occurred			
                                                 }
                                               }
-	|	'(' SETQ ID v=sexpr ')' EOL       { 
+	|	'(' SETQ ID v=sexpr ')' EOL       { LispIntRun.ps.println("Store value in symbol: SETQ found");
                                                     store.put($ID.text,new Integer($v.value));
                                                     //Hashmap is composed by: ID (variable name), Numeric Value 
                                                   }
@@ -52,17 +53,16 @@ com
 sexpr		                     returns [int value]
 	:	v1=term              { $value = $v1.value; }
 		|('('
-                PLUS v1=sexpr v2=sexpr ')' {$value = $v1.value + $v2.value;}
-                | '(' MINUS v1=sexpr v2=sexpr ')' {$value = $v1.value - $v2.value;} 
-                | '(' TIMES v1=sexpr v2=sexpr ')' {$value = $v1.value * $v2.value;}
-                | '(' QUOTIENT v1=sexpr v2=sexpr ')' {$value = $v1.value / $v2.value;}
+                PLUS v1=sexpr v2=sexpr ')' {$value = $v1.value + $v2.value; LispIntRun.ps.println("Addition of atoms: + found");}
+                | '(' MINUS v1=sexpr v2=sexpr ')' {$value = $v1.value - $v2.value; LispIntRun.ps.println("Substraction of atoms: - found");} 
+                | '(' TIMES v1=sexpr v2=sexpr ')' {$value = $v1.value * $v2.value; LispIntRun.ps.println("Multiplication of atoms: * found ");}
+                | '(' QUOTIENT v1=sexpr v2=sexpr ')' {$value = $v1.value / $v2.value; LispIntRun.ps.println("Division of atoms: / found");}
                 )
 	;
 
 term		                     returns [int value]
-	:	NUM                  { $value = Integer.parseInt(
-		                         $NUM.text); }
-	|	ID                   {  
+	:	NUM                  { $value = Integer.parseInt($NUM.text); LispIntRun.ps.println("Number found"); }
+	|	ID                   { LispIntRun.ps.println("Symbol found") ;
                                        Integer v3 = (Integer)store.get($ID.text);
                                        if ( v3!=null ) $value = v3.intValue();
                                        else System.err.println("undefined variable "+$ID.text);

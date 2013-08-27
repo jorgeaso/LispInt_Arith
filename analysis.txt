@@ -1,0 +1,30 @@
+Number found
+Store value in symbol: SETQ found
+Number found
+Store value in symbol: SETQ found
+Number found
+Store value in symbol: SETQ found
+Symbol found
+Symbol found
+Addition of atoms: + found
+Symbol found
+Addition of atoms: + found
+Number found
+Division of atoms: / found
+Store value in symbol: SETQ found
+Symbol found
+Write result: PUT found
+Symbol found
+Symbol found
+Symbol found
+Substraction of atoms: - found
+Multiplication of atoms: * found 
+Symbol found
+Symbol found
+Substraction of atoms: - found
+Multiplication of atoms: * found 
+Symbol found
+Symbol found
+Substraction of atoms: - found
+Multiplication of atoms: * found 
+Write result: PUT found

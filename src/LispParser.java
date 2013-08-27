@@ -1,4 +1,4 @@
-// $ANTLR 3.5 /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g 2013-08-26 18:05:42
+// $ANTLR 3.5 /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g 2013-08-27 03:25:21
 
 import java.util.HashMap;
 import java.io.*;
@@ -164,7 +164,8 @@ public class LispParser extends Parser {
 
 					match(input,RPAR,FOLLOW_RPAR_in_com61); 
 					match(input,EOL,FOLLOW_EOL_in_com63); 
-					 LispIntRun.output.println(v); // PrintWriter
+					 LispIntRun.ps.println("Write result: PUT found");
+					                                                LispIntRun.output.println(v); // PrintWriter
 					                                                try
 					                                                {
 					                                                    PrintWriter writerout = null; 
@@ -181,7 +182,7 @@ public class LispParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:44:4: '(' SETQ ID v= sexpr ')' EOL
+					// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:45:4: '(' SETQ ID v= sexpr ')' EOL
 					{
 					match(input,LPAR,FOLLOW_LPAR_in_com76); 
 					match(input,SETQ,FOLLOW_SETQ_in_com78); 
@@ -192,7 +193,7 @@ public class LispParser extends Parser {
 
 					match(input,RPAR,FOLLOW_RPAR_in_com86); 
 					match(input,EOL,FOLLOW_EOL_in_com88); 
-					 
+					 LispIntRun.ps.println("Store value in symbol: SETQ found");
 					                                                    store.put((ID1!=null?ID1.getText():null),new Integer(v));
 					                                                    //Hashmap is composed by: ID (variable name), Numeric Value 
 					                                                  
@@ -214,7 +215,7 @@ public class LispParser extends Parser {
 
 
 	// $ANTLR start "sexpr"
-	// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:52:1: sexpr returns [int value] : (v1= term | ( '(' PLUS v1= sexpr v2= sexpr ')' | '(' MINUS v1= sexpr v2= sexpr ')' | '(' TIMES v1= sexpr v2= sexpr ')' | '(' QUOTIENT v1= sexpr v2= sexpr ')' ) );
+	// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:53:1: sexpr returns [int value] : (v1= term | ( '(' PLUS v1= sexpr v2= sexpr ')' | '(' MINUS v1= sexpr v2= sexpr ')' | '(' TIMES v1= sexpr v2= sexpr ')' | '(' QUOTIENT v1= sexpr v2= sexpr ')' ) );
 	public final int sexpr() throws RecognitionException {
 		int value = 0;
 
@@ -223,7 +224,7 @@ public class LispParser extends Parser {
 		int v2 =0;
 
 		try {
-			// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:53:2: (v1= term | ( '(' PLUS v1= sexpr v2= sexpr ')' | '(' MINUS v1= sexpr v2= sexpr ')' | '(' TIMES v1= sexpr v2= sexpr ')' | '(' QUOTIENT v1= sexpr v2= sexpr ')' ) )
+			// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:54:2: (v1= term | ( '(' PLUS v1= sexpr v2= sexpr ')' | '(' MINUS v1= sexpr v2= sexpr ')' | '(' TIMES v1= sexpr v2= sexpr ')' | '(' QUOTIENT v1= sexpr v2= sexpr ')' ) )
 			int alt4=2;
 			int LA4_0 = input.LA(1);
 			if ( (LA4_0==ID||LA4_0==NUM) ) {
@@ -260,7 +261,7 @@ public class LispParser extends Parser {
 
 			switch (alt4) {
 				case 1 :
-					// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:53:4: v1= term
+					// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:54:4: v1= term
 					{
 					pushFollow(FOLLOW_term_in_sexpr137);
 					v1=term();
@@ -270,9 +271,9 @@ public class LispParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:54:4: ( '(' PLUS v1= sexpr v2= sexpr ')' | '(' MINUS v1= sexpr v2= sexpr ')' | '(' TIMES v1= sexpr v2= sexpr ')' | '(' QUOTIENT v1= sexpr v2= sexpr ')' )
+					// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:55:4: ( '(' PLUS v1= sexpr v2= sexpr ')' | '(' MINUS v1= sexpr v2= sexpr ')' | '(' TIMES v1= sexpr v2= sexpr ')' | '(' QUOTIENT v1= sexpr v2= sexpr ')' )
 					{
-					// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:54:4: ( '(' PLUS v1= sexpr v2= sexpr ')' | '(' MINUS v1= sexpr v2= sexpr ')' | '(' TIMES v1= sexpr v2= sexpr ')' | '(' QUOTIENT v1= sexpr v2= sexpr ')' )
+					// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:55:4: ( '(' PLUS v1= sexpr v2= sexpr ')' | '(' MINUS v1= sexpr v2= sexpr ')' | '(' TIMES v1= sexpr v2= sexpr ')' | '(' QUOTIENT v1= sexpr v2= sexpr ')' )
 					int alt3=4;
 					int LA3_0 = input.LA(1);
 					if ( (LA3_0==LPAR) ) {
@@ -318,7 +319,7 @@ public class LispParser extends Parser {
 
 					switch (alt3) {
 						case 1 :
-							// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:54:5: '(' PLUS v1= sexpr v2= sexpr ')'
+							// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:55:5: '(' PLUS v1= sexpr v2= sexpr ')'
 							{
 							match(input,LPAR,FOLLOW_LPAR_in_sexpr158); 
 							match(input,PLUS,FOLLOW_PLUS_in_sexpr176); 
@@ -331,11 +332,11 @@ public class LispParser extends Parser {
 							state._fsp--;
 
 							match(input,RPAR,FOLLOW_RPAR_in_sexpr186); 
-							value = v1 + v2;
+							value = v1 + v2; LispIntRun.ps.println("Addition of atoms: + found");
 							}
 							break;
 						case 2 :
-							// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:56:19: '(' MINUS v1= sexpr v2= sexpr ')'
+							// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:57:19: '(' MINUS v1= sexpr v2= sexpr ')'
 							{
 							match(input,LPAR,FOLLOW_LPAR_in_sexpr208); 
 							match(input,MINUS,FOLLOW_MINUS_in_sexpr210); 
@@ -348,11 +349,11 @@ public class LispParser extends Parser {
 							state._fsp--;
 
 							match(input,RPAR,FOLLOW_RPAR_in_sexpr220); 
-							value = v1 - v2;
+							value = v1 - v2; LispIntRun.ps.println("Substraction of atoms: - found");
 							}
 							break;
 						case 3 :
-							// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:57:19: '(' TIMES v1= sexpr v2= sexpr ')'
+							// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:58:19: '(' TIMES v1= sexpr v2= sexpr ')'
 							{
 							match(input,LPAR,FOLLOW_LPAR_in_sexpr243); 
 							match(input,TIMES,FOLLOW_TIMES_in_sexpr245); 
@@ -365,11 +366,11 @@ public class LispParser extends Parser {
 							state._fsp--;
 
 							match(input,RPAR,FOLLOW_RPAR_in_sexpr255); 
-							value = v1 * v2;
+							value = v1 * v2; LispIntRun.ps.println("Multiplication of atoms: * found ");
 							}
 							break;
 						case 4 :
-							// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:58:19: '(' QUOTIENT v1= sexpr v2= sexpr ')'
+							// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:59:19: '(' QUOTIENT v1= sexpr v2= sexpr ')'
 							{
 							match(input,LPAR,FOLLOW_LPAR_in_sexpr277); 
 							match(input,QUOTIENT,FOLLOW_QUOTIENT_in_sexpr279); 
@@ -382,7 +383,7 @@ public class LispParser extends Parser {
 							state._fsp--;
 
 							match(input,RPAR,FOLLOW_RPAR_in_sexpr289); 
-							value = v1 / v2;
+							value = v1 / v2; LispIntRun.ps.println("Division of atoms: / found");
 							}
 							break;
 
@@ -407,7 +408,7 @@ public class LispParser extends Parser {
 
 
 	// $ANTLR start "term"
-	// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:62:1: term returns [int value] : ( NUM | ID | '(' v= sexpr ')' );
+	// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:63:1: term returns [int value] : ( NUM | ID | '(' v= sexpr ')' );
 	public final int term() throws RecognitionException {
 		int value = 0;
 
@@ -417,7 +418,7 @@ public class LispParser extends Parser {
 		int v =0;
 
 		try {
-			// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:63:2: ( NUM | ID | '(' v= sexpr ')' )
+			// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:64:2: ( NUM | ID | '(' v= sexpr ')' )
 			int alt5=3;
 			switch ( input.LA(1) ) {
 			case NUM:
@@ -442,18 +443,17 @@ public class LispParser extends Parser {
 			}
 			switch (alt5) {
 				case 1 :
-					// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:63:4: NUM
+					// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:64:4: NUM
 					{
 					NUM2=(Token)match(input,NUM,FOLLOW_NUM_in_term346); 
-					 value = Integer.parseInt(
-							                         (NUM2!=null?NUM2.getText():null)); 
+					 value = Integer.parseInt((NUM2!=null?NUM2.getText():null)); LispIntRun.ps.println("Number found"); 
 					}
 					break;
 				case 2 :
 					// /Users/jorgejaso/NetBeansProjects/LispInt_Arith/src/Lisp.g:65:4: ID
 					{
 					ID3=(Token)match(input,ID,FOLLOW_ID_in_term370); 
-					  
+					 LispIntRun.ps.println("Symbol found") ;
 					                                       Integer v3 = (Integer)store.get((ID3!=null?ID3.getText():null));
 					                                       if ( v3!=null ) value = v3.intValue();
 					                                       else System.err.println("undefined variable "+(ID3!=null?ID3.getText():null));

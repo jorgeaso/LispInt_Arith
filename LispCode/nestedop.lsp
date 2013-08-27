@@ -1,0 +1,5 @@
+(setq a 10)
+(setq b 2)
+(setq c 3)
+(setq d 5)
+(put (-(+(+ a b)c)d))
