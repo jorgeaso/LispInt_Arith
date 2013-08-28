@@ -13,9 +13,19 @@ import java.io.*;
 
 @members {
         
-	// private int[] store = new int[26]; // implement hashmap
-	// ... storage for variables 'a', ..., 'z'
-        HashMap store = new HashMap(); // implementation of hashmap
+	// Implementation of hashmap to store values
+        HashMap store = new HashMap(); 
+        
+        // Error Handling
+        public void displayRecognitionError(String[] tokenNames,
+                                        RecognitionException e) {
+        String hdr = getErrorHeader(e);
+        String msg = getErrorMessage(e, tokenNames);        
+        if (!msg.equals(""))
+           System.err.println(" Lisp Sintax Error in "+hdr+"\n"); 
+        }
+        
+
 }
 
 // Programs 

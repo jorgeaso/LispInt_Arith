@@ -144,7 +144,8 @@ public class LispIntGUI extends JFrame implements ActionListener {
             } // End if selectButton
             
             if (ae.getSource()==analyzeButton)
-            {	    	
+            {	
+                // Display Code Analysis
                 if (CodeTextArea.getText().equals("")){
                         JOptionPane.showMessageDialog(null, "Enter Lisp Code or Select Lisp File!", "Warning Message", JOptionPane.WARNING_MESSAGE);
                 }else if (OutputTextArea.getText().equals("")){
@@ -153,10 +154,11 @@ public class LispIntGUI extends JFrame implements ActionListener {
                 else{
                     // Display Analysis
                     try{    
-                    FileReader reader = new FileReader("./analysis.txt");
+                    FileReader reader = new FileReader("./analysis");
                     Scanner in = new Scanner(reader);
                     OutputTextArea.setText("");
                     while (in.hasNextLine()) { 
+                        OutputTextArea.setForeground(Color.blue);
                         OutputTextArea.append(in.nextLine());
                         OutputTextArea.append("\n");
                     }
@@ -168,8 +170,21 @@ public class LispIntGUI extends JFrame implements ActionListener {
             }
             
             if (ae.getSource()==executeButton){
-                // Execute selected file
-                LispIntRun.file = new File("analysis.txt");
+                
+                // Redirect errors 
+                LispIntRun.errorsfile = new File("./errorlog");
+                LispIntRun.errorsfile.deleteOnExit();
+                try {
+                    LispIntRun.efos = new FileOutputStream(LispIntRun.errorsfile);
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(LispIntGUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                LispIntRun.eps = new PrintStream(LispIntRun.efos);
+                System.setErr(LispIntRun.eps);
+                
+                // Create Analysis
+                LispIntRun.file = new File("./analysis");
+                LispIntRun.file.deleteOnExit();
                 try {
                     LispIntRun.fos = new FileOutputStream(LispIntRun.file);
                 } catch (FileNotFoundException ex) {
@@ -177,8 +192,8 @@ public class LispIntGUI extends JFrame implements ActionListener {
                 }
                 LispIntRun.ps = new PrintStream(LispIntRun.fos);
                 System.setOut(LispIntRun.ps);
- 
                 
+                // Execute lisp code
                 try {
                     PrintWriter writerout = null; 
                     writerout = new PrintWriter("./LispSource"); 
@@ -202,16 +217,37 @@ public class LispIntGUI extends JFrame implements ActionListener {
                     System.exit(0);
                 }
                 
-                //Display Results in text field
-                DisplayCode SourceCodeObject =new DisplayCode();
-                String Results=SourceCodeObject.DisplayOutput();
-                OutputTextArea.setText(Results);	   
+                // Display Code Output 
+                    DisplayCode SourceCodeObject =new DisplayCode();
+                    String Results=SourceCodeObject.DisplayOutput();
+                    OutputTextArea.setForeground(Color.black);
+                    OutputTextArea.setText(Results);
+                
+                // Display errors
+              
+                    try{    
+                    FileReader reader = new FileReader("./errorlog");
+                    Scanner in = new Scanner(reader);
+                    //OutputTextArea.setText("");
+                    while (in.hasNextLine()) {
+                        OutputTextArea.setForeground(Color.red);
+                        OutputTextArea.append(in.nextLine());
+                        OutputTextArea.append("\n");
+                    }
+                    reader.close(); 
+                    }catch(IOException e){
+                        JOptionPane.showMessageDialog(null, "Error on syntax \n", "Error Message", JOptionPane.ERROR_MESSAGE);
+                    }
+                
+                    
+
+                
             } // End if executeButton 
             
             if (ae.getSource()==saveButton)
             {	    	
                 // Save the input code and the results to a file
-                JFileChooser chooser = new JFileChooser();
+                JFileChooser chooser = new JFileChooser(".");
                 chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY); 
                 chooser.showSaveDialog(null);
                 String savepath = chooser.getSelectedFile().getAbsolutePath();
