@@ -224,7 +224,6 @@ public class LispIntGUI extends JFrame implements ActionListener {
                     OutputTextArea.setText(Results);
                 
                 // Display errors
-              
                     try{    
                     FileReader reader = new FileReader("./errorlog");
                     Scanner in = new Scanner(reader);
@@ -238,9 +237,6 @@ public class LispIntGUI extends JFrame implements ActionListener {
                     }catch(IOException e){
                         JOptionPane.showMessageDialog(null, "Error on syntax \n", "Error Message", JOptionPane.ERROR_MESSAGE);
                     }
-                
-                    
-
                 
             } // End if executeButton 
             

@@ -20,13 +20,11 @@ public class LispIntRun {
     public static File errorsfile;
     public static FileOutputStream efos;
     public static PrintStream eps ;
-    
-    
+   
     public static void main(String[] args) throws Exception {
             output=System.out; 
             LispIntGUI LispGUI = new LispIntGUI();
             LispGUI.setVisible(true);
-    
     }     
         
 }
